@@ -16,7 +16,7 @@ provider "aws" {
   region = var.region
 }
 
-  resource "ec2" "minha-instancia" {
+  resource "aws_instance" "minha-instancia" {
   ami           = var.image
   instance_type = var.instance_type
 
