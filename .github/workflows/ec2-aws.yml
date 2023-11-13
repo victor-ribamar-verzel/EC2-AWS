@@ -44,7 +44,7 @@ jobs:
       run: terraform validate
       working-directory: Terraform
     - name: Terraform Apply
-      run: terraform apply -var instance_name=${{ github.event.inputs.instanceName }} -var region=${{ github.event.inputs.region }} -var image=${{ github.event.inputs.image}} -var instance_type=${{ github.event.inputs.instance_type}} -auto-approve
+      run: terraform apply -var instance_name=${{ github.event.inputs.instance_name }} -var region=${{ github.event.inputs.region }} -var image=${{ github.event.inputs.image}} -var instance_type=${{ github.event.inputs.instance_type}} -auto-approve
       working-directory: Terraform
 
   destroy:

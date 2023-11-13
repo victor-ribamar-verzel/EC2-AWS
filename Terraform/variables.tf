@@ -13,11 +13,10 @@ variable "instance_type" {
 variable "image" {
   description = "imagem da sua instancia EC2"
   type        = string
-  default     = "t2.small"
 }
 
 variable "instance_name" {
   description = "imagem da sua instancia EC2"
   type        = string
-  default     = "t2.small"
+  default     = "default"
 }
