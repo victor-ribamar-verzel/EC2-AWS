@@ -1,19 +1,13 @@
-name: EC2 on AWS
+name: s3 on aws
 
 on:
   workflow_dispatch:
     inputs:
-      instance_name:
-        description: 'Nome da sua instancia EC2'
+      bucket_name:
+        description: 'Nome do seu Bucket s3'
         required: true
       region:
-        description: 'AWS Region for the cluster'
-        required: true
-      image:
-        description: 'Imagem base da sua Instancia'
-        required: true
-      instance_type:
-        description: 'Imagem base da sua Instancia'
+        description: 'Regiao da AWS'
         required: true
       action:
         description: 'Action to perform (apply/destroy)'
@@ -36,16 +30,16 @@ jobs:
         aws-region: ${{ github.event.inputs.region }}
     - name: Terraform Init
       run: terraform init
-      working-directory: ec2
+      working-directory: s3
     - name: Terraform Format
       run: terraform fmt
-      working-directory: ec2
+      working-directory: s3
     - name: Terraform Validate
       run: terraform validate
-      working-directory: ec2
+      working-directory: s3
     - name: Terraform Apply
-      run: terraform apply -var instance_name=${{ github.event.inputs.instance_name }} -var region=${{ github.event.inputs.region }} -var image=${{ github.event.inputs.image}} -var instance_type=${{ github.event.inputs.instance_type}} -auto-approve
-      working-directory: ec2
+      run: terraform apply -var bucket_name=${{ github.event.inputs.bucket_name }} -var region=${{ github.event.inputs.region }}  -auto-approve
+      working-directory: s3
 
   destroy:
     runs-on: ubuntu-latest
@@ -63,13 +57,13 @@ jobs:
         aws-region: ${{ github.event.inputs.region }}
     - name: Terraform Init
       run: terraform init
-      working-directory: ec2
+      working-directory: s3
     - name: Terraform FMT
       run: terraform fmt
-      working-directory: ec2
+      working-directory: s3
     - name: Terraform Validate
       run: terraform validate
-      working-directory: ec2
+      working-directory: s3
     - name: Terraform Destroy
-      run: terraform destroy -var instance_name=${{ github.event.inputs.instanceName }} -var region=${{ github.event.inputs.region }} -var image=${{ github.event.inputs.image}} -var instace_type=${{ github.event.inputs.instance_type}} -auto-approve
-      working-directory: ec2
+      run: terraform destroy -var bucket_name=${{ github.event.inputs.bucket_name}} -var region=${{ github.event.inputs.region }} -auto-approve
+      working-directory: s3
