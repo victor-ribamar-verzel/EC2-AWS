@@ -1,4 +1,4 @@
-name: EC2 on AWS
+name: EC2 + S3
 
 on:
   workflow_dispatch:
