@@ -4,7 +4,7 @@ metadata:
   name: ec2-terraform
   annotations:
     github.com/project-slug: victor-ribamar-verzel/EC2-AWS
-  description: AWS EKS cluster managed by Terraform
+  description: AWS EC2 via Terraform
   tags:
     - aws
     - ec2
