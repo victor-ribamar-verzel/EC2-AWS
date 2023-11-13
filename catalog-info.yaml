@@ -3,11 +3,11 @@ kind: Component
 metadata:
   name: ec2-terraform
   annotations:
-    github.com/project-slug: samgabrail/aws-eks
+    github.com/project-slug: victor-ribamar-verzel/EC2-AWS
   description: AWS EKS cluster managed by Terraform
   tags:
     - aws
-    - eks
+    - ec2
     - terraform
 spec:
   type: service
